@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"/>
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
+    <a href="/"><h1>Skate Park</h1></a>
+
+    <div class="py-4">
+      <h2>Personas Inscritas</h2>
+      <hr class="w-50" />
+      <form action="/skater-confirm" method="get" enctype="multipart/form-data">
+      <table class="table w-50 m-auto table-dark">
+        <thead>
+          {{#if skaters}}
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Foto</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Años de experiencia</th>
+            <th scope="col">Especialidad</th>
+            <th scope="col">Estado</th>
+          </tr>
+          {{/if}}
+        </thead>
+        <tbody>
+            {{#each skaters}}
+          <tr>
+            <th scope="row">{{this.id}}</th>
+            <td><div><img src="/{{this.foto}}" width="60px" height="60px"></div></td>
+            <td>{{this.nombre}}</td>
+            <td>{{this.anos_experiencia}}</td>
+            <td>{{this.especialidad}}</td>
+            <td>{{this.estado}}</td>
+          </tr>
+           {{/each}}
+            <td><button class="btn btn-primary"><a href="/skater-confirm?estado={{skaters.estado}}"></a>Confirmar Todos</button></td>
+        </tbody> 
+      </table>
+
+      </form>
+    </div>
+<script src="/BootstrapJs/bootstrap.js"></script> 
+<script>
+
+</script>
+  </body>
+</html>
