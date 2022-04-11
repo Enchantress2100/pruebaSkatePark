@@ -27,7 +27,7 @@ const eliminarUsuario = require('./eliminarUsuario')
 const confirmarUsuario= require('./confirmarUsuario')
 
 //puerto para levantar el servidor en Heroku
-//const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 //disponibilizar carpeta publica
 app.use(express.static("public"));
@@ -190,4 +190,4 @@ app.get("/skater-confirm", async (req, res) => {
 });
 
 //levantar el servidor
-app.listen(3000, () => console.log('Server on and working OK'))
+app.listen(port, () => console.log('Server on and working OK'))
